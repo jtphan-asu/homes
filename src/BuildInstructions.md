@@ -33,7 +33,19 @@ ng serve --open
     //Update home.component.css
     
 
-    **Create housing location component**
+**Create housing location component**
 
     //Run command to generate
     ng generate component housingLocation --standalone --inline-template --skip-tests
+
+    Add Housing Location to home component
+
+**Create housing location interface**
+ //Run
+ ng generate interface housinglocation
+
+ //Add properties to interface
+ id, name, city, state, photo, availableUnits, wifi, laundry, pets
+
+**Use housing location interface**
+//Inside home component, create a test house as a single instance of the interface
