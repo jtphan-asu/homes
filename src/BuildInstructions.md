@@ -60,3 +60,15 @@ ng serve --open
 
     Section with image, header, paragraph tag for citt, state, pets
 
+**Update HomeComponent to use ngFor and display HousingLocationList from an array of objects**
+housingLocationList: HousingLocation[] = [
+    {
+      id: 0,
+      name: 'Acme Fresh Start Housing',
+      city: 'Chicago',
+      state: 'IL',
+      photo: `${this.baseUrl}/bernard-hermant-CLKGGwIBTaY-unsplash.jpg`,
+      availableUnits: 4,
+      wifi: true,
+      laundry: true
+    },

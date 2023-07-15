@@ -11,7 +11,6 @@ import { HousingLocation } from '../housinglocation';
     <img class="listing-photo" [src]="housingLocation.photo" alt="Exterior photo of {{housingLocation.name}}">
     <h2 class="listing-heading">{{ housingLocation.name }}</h2>
     <p class="listing-location">{{ housingLocation.city}}, {{housingLocation.state }}</p>
-    <p class="listing-pets"> Pets Allowed: {{ housingLocation.pets }}</p>
   </section>
   `,
   styleUrls: ['./housing-location.component.css']
