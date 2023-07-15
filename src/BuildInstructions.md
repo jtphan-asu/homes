@@ -54,3 +54,9 @@ ng serve --open
 //Insert Input tag in housing location component
 
 //Add property binding to app-housing-location
+
+**Update Housing location component**
+//Change housing-location.component.ts to include updated template
+
+    Section with image, header, paragraph tag for citt, state, pets
+
