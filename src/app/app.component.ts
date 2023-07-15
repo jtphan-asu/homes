@@ -3,11 +3,11 @@ import { Component } from '@angular/core';
 //Import HomeComponent from created home component in /src/app
 import { HomeComponent } from './home/home.component';
 
-
+import { HousingLocationComponent } from './housing-location/housing-location.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ HomeComponent ],
+  imports: [ HomeComponent, HousingLocationComponent ],
   styleUrls: ['./app.component.css'],
   template: `
   <main>

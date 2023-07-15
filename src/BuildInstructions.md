@@ -32,3 +32,8 @@ ng serve --open
 
     //Update home.component.css
     
+
+    **Create housing location component**
+
+    //Run command to generate
+    ng generate component housingLocation --standalone --inline-template --skip-tests
