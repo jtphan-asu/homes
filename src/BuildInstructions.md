@@ -49,3 +49,8 @@ ng serve --open
 
 **Use housing location interface**
 //Inside home component, create a test house as a single instance of the interface
+
+**Create Inputs for housing location component**
+//Insert Input tag in housing location component
+
+//Add property binding to app-housing-location
