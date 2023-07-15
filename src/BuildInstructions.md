@@ -23,4 +23,12 @@ ng serve --open
     //Build and serve app
     ng serve
 
+    //Add new component to app's layout
+
+    //Update template property in app.component.ts
+
+    //Add features to home.component.ts
+    Section for form input to "Filter by City" and button to search
+
+    //Update home.component.css
     
