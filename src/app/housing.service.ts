@@ -1,35 +1,15 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Injectable } from '@angular/core';
+import { HousingLocation } from './housinglocation';
 
-import { HousingLocationComponent } from '../housing-location/housing-location.component'; 
-import { HousingLocation } from '../housinglocation';
-
-import { HousingService } from '../housing.service';
-
-@Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [CommonModule, HousingLocationComponent],
-  template: `
-    <section>
-      <form>
-        <input type="text" placeholder="Filter by city">
-        <button class="primary" type="button">Search</button>
-      </form>
-    </section>
-    <section class="results">
-    <app-housing-location *ngFor="let housingLocationList of housingLocationList"
-     [housingLocation]="housingLocationList">
-    </app-housing-location>
-    </section>
-  `,
-  styleUrls: ['./home.component.css']
+//Create injectable service for housing
+@Injectable({
+  providedIn: 'root'
 })
 
-export class HomeComponent {
-  readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
+export class HousingService {
 
-  housingService: HousingService = inject(HousingService);
+  constructor() { }
+  readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
 
   housingLocationList: HousingLocation[] = [
     {
@@ -133,6 +113,14 @@ export class HomeComponent {
       laundry: true
     }
   ];
+
+  //Return Entire list
+  getAllHousingLocations(): HousingLocation[]{
+    return this.housingLocationList;
+  }
+
+  //Return HousingLocation by id
+  getHousingLocationById(id: number): HousingLocation | undefined {
+    return this.housingLocationList.find(housingLocation => housingLocation.id === id);
+  }
 }
-
-

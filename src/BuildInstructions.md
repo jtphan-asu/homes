@@ -72,3 +72,10 @@ housingLocationList: HousingLocation[] = [
       wifi: true,
       laundry: true
     },
+
+**Create injectable service for housing**
+ng generate service housing --skip-tests
+
+Copy over HousingLocation[] with all current local data
+
+create 2 functions to return housing location by id and entire list
