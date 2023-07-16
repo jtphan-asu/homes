@@ -13,7 +13,7 @@ const routeConfig: Routes = [
         path: 'details/:id',
         component: DetailsComponent,
         title: 'Home details'
-      }
+    }
 ];
 
 export default routeConfig;

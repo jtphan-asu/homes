@@ -106,3 +106,7 @@ Import routes file and providerRouter function
 
 //Change template in app.component.ts to include routerLink and router-outlet
 import Router and RouterModule
+
+**Integrate details page into application**
+
+//Create details:id as a path in routes array in routes.ts.  Also use DetailsComponent as component
