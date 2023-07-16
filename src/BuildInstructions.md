@@ -79,3 +79,30 @@ ng generate service housing --skip-tests
 Copy over HousingLocation[] with all current local data
 
 create 2 functions to return housing location by id and entire list
+
+**Add routing to Application**
+
+//Run command to generate Details Component
+ng generate component details --standalone --inline-template --skip-tests
+
+//Create routes.ts in /src/app
+Import routes.ts, HomeComponent and DetailComponent
+
+//Define the routes in the application
+const routeConfig: Routes = [
+    {
+        path: '',
+        component: HomeComponent,
+        title:'Home page'
+    }
+]
+
+//In main.ts
+Import routes file and providerRouter function
+
+//Change main.ts to include imported bootstrapAppication with the 
+    providers: 
+    [provideProtractorTestingSupport(), provideRouter(routeConfig)]
+
+//Change template in app.component.ts to include routerLink and router-outlet
+import Router and RouterModule
