@@ -110,3 +110,9 @@ import Router and RouterModule
 **Integrate details page into application**
 
 //Create details:id as a path in routes array in routes.ts.  Also use DetailsComponent as component
+
+//Customize DetailsComponent
+Update template to include image, location, city,state, units available, wifi, laundry
+
+//"?" operator serves to chain properties.  If it is null, application does not crash
+housingLocation?.wifi
