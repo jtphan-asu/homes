@@ -174,3 +174,14 @@ constructor() {
 
 //Update ngFor
     <app-housing-location *ngFor="let housingLocation of filteredLocationList" [housingLocation]="housingLocation"></app-housing-location>
+
+//Add the filterResults function implementation
+    filterResults(text: string) {
+    if (!text) {
+        this.filteredLocationList = this.housingLocationList;
+    }
+
+    this.filteredLocationList = this.housingLocationList.filter(
+        housingLocation => housingLocation?.city.toLowerCase().includes(text.toLowerCase())
+    );
+    }
