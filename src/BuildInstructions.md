@@ -116,3 +116,12 @@ Update template to include image, location, city,state, units available, wifi, l
 
 //"?" operator serves to chain properties.  If it is null, application does not crash
 housingLocation?.wifi
+
+**Add method to submit/send form data**
+//Add to housing service
+submitApplication(firstName: string, lastName: string, email: string){
+    console.log('Homes application received: firstName: ${firstName}, lastName: ${lastName}, email: ${email}.')
+  }
+
+**Add the form functions to the details page**
+
