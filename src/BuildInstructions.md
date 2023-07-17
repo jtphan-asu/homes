@@ -125,3 +125,31 @@ submitApplication(firstName: string, lastName: string, email: string){
 
 **Add the form functions to the details page**
 
+//Add method to send form data in housing.service.ts
+    submitApplication(firstName: string, lastName: string, email: string) {
+  console.log(`Homes application received: firstName: ${firstName}, lastName: ${lastName}, email: ${email}.`);
+}
+
+//Add form functions FormGroup, FormControl to details.component.ts
+
+    applyForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    email: new FormControl('')
+    });
+
+//Add Form handler to submit application using housingService
+
+    submitApplication() {
+    this.housingService.submitApplication(
+        this.applyForm.value.firstName ?? '',
+        this.applyForm.value.lastName ?? '',
+        this.applyForm.value.email ?? ''
+    );
+    }
+
+//Change HTML in details component template to include form
+
+    <form [formGroup]="applyForm" (submit)="submitApplication()">
+            <label for="first-name">First Name</label>
+            <input id="first-name" type="text" formControlName="firstName">
