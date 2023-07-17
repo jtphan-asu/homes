@@ -153,3 +153,24 @@ submitApplication(firstName: string, lastName: string, email: string){
     <form [formGroup]="applyForm" (submit)="submitApplication()">
             <label for="first-name">First Name</label>
             <input id="first-name" type="text" formControlName="firstName">
+
+**Add Search Functionality to Application**
+//Add HousingLocation array to store filtered location list
+
+//Add constructor for filtered location list.  
+//This should contain the total set of housing location values
+
+constructor() {
+  this.housingLocationList = this.housingService.getAllHousingLocations();
+
+  this.filteredLocationList = this.housingLocationList;
+}
+
+//Add filter template variable
+    <input type="text" placeholder="Filter by city" #filter>
+
+//Bind the click event
+    <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
+
+//Update ngFor
+    <app-housing-location *ngFor="let housingLocation of filteredLocationList" [housingLocation]="housingLocation"></app-housing-location>
