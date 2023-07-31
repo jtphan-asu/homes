@@ -185,3 +185,52 @@ constructor() {
         housingLocation => housingLocation?.city.toLowerCase().includes(text.toLowerCase())
     );
     }
+
+**Configure JSON server**
+
+sudo npm install -g json-server
+
+//create db.json with static housing information
+
+//run command 
+json-server --watch db.json
+
+**Update service to use Web Server instead of local array**
+
+//in src/app/housing.service.ts
+//use JSON-server
+  url = 'http://localhost:3000/locations';
+
+//Async function to return JSON data
+  async getAllHousingLocation(): Promise<HousingLocation[]> {
+    const data = await fetch(this.url);
+    return await data.json() ?? [];
+  }
+
+//Async functin to return HousingLocation by ID
+ async getHousingLocationById(id: number): Promise<HousingLocation | undefined> {
+    const data = await fetch(`${this.url}/${id}`);
+    return await data.json() ?? {};
+  }
+
+//Submit application
+ submitApplication(firstName: string, lastName: string, email: string) {
+    console.log(firstName, lastName, email);
+  }
+
+**Update Components to use Async functions**
+//in home.component.ts
+constructor() {
+  this.housingService.getAllHousingLocations().then((housingLocationList: HousingLocation[]) => {
+    this.housingLocationList = housingLocationList;
+    this.filteredLocationList = housingLocationList;
+  });
+}
+
+//In details.component.ts
+constructor() {
+  const housingLocationId = parseInt(this.route.snapshot.params['id'], 10);
+  this.housingService.getHousingLocationById(housingLocationId).then(housingLocation => {
+    this.housingLocation = housingLocation;
+  });
+}

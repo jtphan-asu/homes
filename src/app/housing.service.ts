@@ -8,9 +8,19 @@ import { HousingLocation } from './housinglocation';
 
 export class HousingService {
 
+  //use JSON-server
+  url = 'http://localhost:3000/locations';
   constructor() { }
   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
 
+  //Async function to return JSON data
+  async getAllHousingLocations(): Promise<HousingLocation[]> {
+    const data = await fetch(this.url);
+    return await data.json() ?? [];
+  }
+
+  //Async function to return JSON data by ID
+  
   housingLocationList: HousingLocation[] = [
     {
       id: 0,
@@ -114,17 +124,15 @@ export class HousingService {
     }
   ];
 
-  //Return Entire list
-  getAllHousingLocations(): HousingLocation[]{
-    return this.housingLocationList;
-  }
+  
 
   //Return HousingLocation by id
-  getHousingLocationById(id: number): HousingLocation | undefined {
-    return this.housingLocationList.find(housingLocation => housingLocation.id === id);
+  async getHousingLocationById(id: number): Promise<HousingLocation | undefined> {
+    const data = await fetch(`${this.url}/${id}`);
+    return await data.json() ?? {};
   }
 
-  submitApplication(firstName: string, lastName: string, email: string){
-    console.log(`Homes application received: firstName: ${firstName}, lastName: ${lastName}, email: ${email}.`)
+  submitApplication(firstName: string, lastName: string, email: string) {
+    console.log(firstName, lastName, email);
   }
 }
